@@ -1,12 +1,12 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Home.css';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import MovieList from '../components/movieList/movieList';
 import { Carousel } from 'react-responsive-carousel';
 import { Link } from 'react-router-dom';
 
-
 const Home = () => {
-    const [popularMovies, setPopularMovies] = useState([]);
+  const [popularMovies, setPopularMovies] = useState([]);
   useEffect(() => {
     fetch(
       ' https://api.themoviedb.org/3/movie/popular?api_key=2d8fc99ae41a856dfbd514f4390ff625&language=en-US'
@@ -55,6 +55,7 @@ const Home = () => {
             </Link>
           ))}
         </Carousel>
+        <MovieList />
       </div>
     </>
   );
